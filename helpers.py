@@ -35,6 +35,7 @@ class User:
     def delete_user(user_token):
         headers = {"Authorization": user_token}
         response = requests.delete(EndPoints.login_user, headers=headers)
+
         return response
 
 
@@ -44,9 +45,9 @@ class Order:
     def create_order(ingredients, token=""):
         headers = {"Authorization": token}
         data = {"ingredients": ingredients}
-        respons = requests.post(EndPoints.create_order, data=data, headers=headers)
+        response = requests.post(EndPoints.create_order, data=data, headers=headers)
 
-        return respons
+        return response
 
     @allure.step("Создание набора хешей для нового бургера")
     def create_burger(self):
